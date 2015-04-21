@@ -12,6 +12,7 @@ source 'https://rubygems.org'
   gem 'bcrypt', '~> 3.1.7'
   gem 'bootstrap-sass', '~> 3.3.4'
   gem 'rails_12factor', '~> 0.0.3'
+  gem 'omniauth-github'
 
 group :development, :test do
   gem 'byebug'
@@ -21,5 +22,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem "capybara"
   gem 'launchy'
+  gem 'dotenv-rails'
 
 end
