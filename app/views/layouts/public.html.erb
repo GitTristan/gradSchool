@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GradSchool</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+            <li><%= link_to "#{current_user.name}", user_path(current_user)%></li>
+            <li><%= link_to "Sign out", sign_out_path %></li>
+          <% else %>
+            <li><%= link_to "Sign In", sign_in_path %></li>
+            <!-- <li><%= link_to "Sign Up", sign_up_path %></li> -->
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+
+<div class="container">
+  <% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}", class: "alert alert-#{name}" %>
+  <% end %>
+</div>
+
+<%= yield %>
+
+</body>
+</html>
